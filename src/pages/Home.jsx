@@ -13,7 +13,7 @@ fetch('https://fakestoreapi.com/products')
     return (
        <>
        
-       <div className='grid gap-8 justify-center md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 '>
+       <div className='grid gap-3 justify-center md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-3 mx-12'>
 
   
        {

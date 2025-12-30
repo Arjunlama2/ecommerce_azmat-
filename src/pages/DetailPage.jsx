@@ -1,23 +1,32 @@
+import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 
 function DetailPage() {
-    
-    const [data, setData]=useState()
-    const {id}=useParams()
 
-    useEffect(()=>{
-    fetch(`https://fakestoreapi.com/products/${id}`)
-                .then(res=>res.json())            
-                .then(json=>setData(json))
-    },[])
-    
-   
+  const [data, setData] = useState()
+  const { id } = useParams()
+
+
+  const fetchdata = async () => {
+    try {
+      const response = await axios.get(`https://fakestoreapi.com/products/${id}`)
+      setData(response.data)
+    } catch (err) {
+
+    }
+  }
+
+  useEffect(() => {
+    fetchdata()
+  }, [])
+
+
 
   return (
     <div className="max-w-5xl mx-auto p-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-white shadow-lg rounded-lg p-6">
-        
+
         {/* Product Image */}
         <div className="flex justify-center items-center">
           <img
